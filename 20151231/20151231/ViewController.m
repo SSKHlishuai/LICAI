@@ -23,7 +23,7 @@
 }
 -(void)InitilizeCalendarView
 {
-    _canlendarView = [[CalendarView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64)];
+    _canlendarView = [[CalendarView alloc]initWithFrame:CGRectMake(0, 104, self.view.frame.size.width, self.view.frame.size.height-104)];
     [self.view addSubview:_canlendarView];
 }
 

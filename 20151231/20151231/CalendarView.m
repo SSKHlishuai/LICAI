@@ -9,9 +9,16 @@
 #import "CalendarView.h"
 #import "CollectionCell.h"
 
+#import "CalendarViewFlowLayout.h"
+
+#import "CalendarHandle.h"
+
 @interface CalendarView ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
     UICollectionView* myCollection;
+    NSDate      *currentSelectDate;     //当前显示的月份
+    NSInteger   firstDayPostx;          //第一天是周几
+    NSInteger   monthDayCounts;         //当前月份的天数
     
 }
 
@@ -54,15 +61,11 @@
      minimumLineSpacing,minimumInteritemSpacing是处理科目框框之间的间距
      */
    
-    UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
+    CalendarViewFlowLayout *flowLayout=[[CalendarViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
 
-    flowLayout.minimumLineSpacing = 1;
-    flowLayout.minimumInteritemSpacing=1;
-//    myCollection =[[UICollectionView alloc]init];
-//    myCollection.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-//    myCollection.collectionViewLayout = flowLayout;
-
+    flowLayout.minimumLineSpacing = 0;
+    flowLayout.minimumInteritemSpacing=0;
     myCollection= [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) collectionViewLayout:flowLayout];
     myCollection.layer.masksToBounds = NO;
     myCollection.layer.cornerRadius = 5;
@@ -74,7 +77,12 @@
     myCollection.scrollEnabled = YES;
     [myCollection registerClass:[CollectionCell class] forCellWithReuseIdentifier:@"CollectionCell"];
     [self addSubview:myCollection];
-
+    
+    currentSelectDate = [NSDate date];
+    firstDayPostx = [CalendarHandle getFirstPostWithDate:currentSelectDate];
+    NSString *str = @"";
+    str = [str nowMonthDays:currentSelectDate];
+    monthDayCounts = [str integerValue];
 }
 
 #pragma mark - collectionView delegate
@@ -91,18 +99,28 @@
     return 42;
 }
 
-
--(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CollectionCell *cell = (CollectionCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionCell" forIndexPath:indexPath];
-    if(!cell)
+    
+    static NSString * CellIdentifier = @"CollectionCell";
+    CollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.contentView.layer.borderWidth=0.5;
+    cell.contentView.layer.borderColor=  HexRGB(0xbfe4e1).CGColor;
+
+    
+    if(firstDayPostx<(indexPath.item+2)&&(indexPath.item+2-firstDayPostx)<= monthDayCounts)
     {
-        cell = [[CollectionCell alloc]init];
+        [cell setCellConfigWithDate:indexPath.item+2-firstDayPostx withEvent:nil];
+
     }
-    cell.contentView.backgroundColor = [UIColor grayColor];
+    else
+    {
+        
+    }
+
+
     return cell;
 }
-
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -112,7 +130,7 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    return CGSizeMake(self.frame.size.width/7.f-1, (self.frame.size.height-70)/6.f-1);
+    return CGSizeMake((self.frame.size.width)/7.f, (self.frame.size.height-70)/6.f);
 }
 
 

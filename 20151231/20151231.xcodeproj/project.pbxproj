@@ -15,6 +15,15 @@
 		1779DBAF1C3530580094383A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1779DBAD1C3530580094383A /* LaunchScreen.storyboard */; };
 		1779DBB81C3530AC0094383A /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1779DBB71C3530AC0094383A /* CalendarView.m */; };
 		1779DBBB1C3532D00094383A /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1779DBBA1C3532D00094383A /* CollectionCell.m */; };
+		17FC892C1C3A3D7D00429D2A /* CalendarCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC892B1C3A3D7D00429D2A /* CalendarCellView.m */; };
+		17FC89331C3A444F00429D2A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC89301C3A444F00429D2A /* BaseViewController.m */; };
+		17FC89371C3A445D00429D2A /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC89361C3A445D00429D2A /* Utils.m */; };
+		17FC89411C3A455E00429D2A /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC89401C3A455E00429D2A /* UIViewExt.m */; };
+		17FC89441C3A4AC800429D2A /* CalendarViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC89431C3A4AC800429D2A /* CalendarViewFlowLayout.m */; };
+		17FC89471C3A4EFA00429D2A /* CalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC89461C3A4EFA00429D2A /* CalendarModel.m */; };
+		17FC894A1C3A4F7400429D2A /* EventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC89491C3A4F7400429D2A /* EventModel.m */; };
+		17FC894D1C3A4F8F00429D2A /* CalendarHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC894C1C3A4F8F00429D2A /* CalendarHandle.m */; };
+		17FC89501C3A5B8E00429D2A /* NSString+MyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC894F1C3A5B8E00429D2A /* NSString+MyDate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +41,29 @@
 		1779DBB71C3530AC0094383A /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarView.m; sourceTree = "<group>"; };
 		1779DBB91C3532D00094383A /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
 		1779DBBA1C3532D00094383A /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
+		17FC892A1C3A3D7D00429D2A /* CalendarCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarCellView.h; sourceTree = "<group>"; };
+		17FC892B1C3A3D7D00429D2A /* CalendarCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarCellView.m; sourceTree = "<group>"; };
+		17FC892F1C3A444F00429D2A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		17FC89301C3A444F00429D2A /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		17FC89351C3A445D00429D2A /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		17FC89361C3A445D00429D2A /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		17FC89381C3A447300429D2A /* Defaultdefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defaultdefine.h; sourceTree = "<group>"; };
+		17FC89391C3A447300429D2A /* Imagedefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Imagedefine.h; sourceTree = "<group>"; };
+		17FC893A1C3A447300429D2A /* ModelDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelDefine.h; sourceTree = "<group>"; };
+		17FC893B1C3A447300429D2A /* UpLoadMapinfoDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpLoadMapinfoDelegate.h; sourceTree = "<group>"; };
+		17FC893E1C3A44B400429D2A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		17FC893F1C3A455E00429D2A /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		17FC89401C3A455E00429D2A /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		17FC89421C3A4AC800429D2A /* CalendarViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewFlowLayout.h; sourceTree = "<group>"; };
+		17FC89431C3A4AC800429D2A /* CalendarViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewFlowLayout.m; sourceTree = "<group>"; };
+		17FC89451C3A4EF900429D2A /* CalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarModel.h; sourceTree = "<group>"; };
+		17FC89461C3A4EFA00429D2A /* CalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarModel.m; sourceTree = "<group>"; };
+		17FC89481C3A4F7400429D2A /* EventModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventModel.h; sourceTree = "<group>"; };
+		17FC89491C3A4F7400429D2A /* EventModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventModel.m; sourceTree = "<group>"; };
+		17FC894B1C3A4F8F00429D2A /* CalendarHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarHandle.h; sourceTree = "<group>"; };
+		17FC894C1C3A4F8F00429D2A /* CalendarHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHandle.m; sourceTree = "<group>"; };
+		17FC894E1C3A5B8E00429D2A /* NSString+MyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MyDate.h"; sourceTree = "<group>"; };
+		17FC894F1C3A5B8E00429D2A /* NSString+MyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MyDate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +96,14 @@
 		1779DB9E1C3530570094383A /* 20151231 */ = {
 			isa = PBXGroup;
 			children = (
+				17FC89381C3A447300429D2A /* Defaultdefine.h */,
+				17FC89391C3A447300429D2A /* Imagedefine.h */,
+				17FC893A1C3A447300429D2A /* ModelDefine.h */,
+				17FC893B1C3A447300429D2A /* UpLoadMapinfoDelegate.h */,
+				17FC892F1C3A444F00429D2A /* BaseViewController.h */,
+				17FC89301C3A444F00429D2A /* BaseViewController.m */,
+				17FC89351C3A445D00429D2A /* Utils.h */,
+				17FC89361C3A445D00429D2A /* Utils.m */,
 				1779DBA21C3530570094383A /* AppDelegate.h */,
 				1779DBA31C3530570094383A /* AppDelegate.m */,
 				1779DBA51C3530570094383A /* ViewController.h */,
@@ -77,6 +117,21 @@
 				1779DBB71C3530AC0094383A /* CalendarView.m */,
 				1779DBB91C3532D00094383A /* CollectionCell.h */,
 				1779DBBA1C3532D00094383A /* CollectionCell.m */,
+				17FC892A1C3A3D7D00429D2A /* CalendarCellView.h */,
+				17FC892B1C3A3D7D00429D2A /* CalendarCellView.m */,
+				17FC893E1C3A44B400429D2A /* PrefixHeader.pch */,
+				17FC893F1C3A455E00429D2A /* UIViewExt.h */,
+				17FC89401C3A455E00429D2A /* UIViewExt.m */,
+				17FC894E1C3A5B8E00429D2A /* NSString+MyDate.h */,
+				17FC894F1C3A5B8E00429D2A /* NSString+MyDate.m */,
+				17FC89421C3A4AC800429D2A /* CalendarViewFlowLayout.h */,
+				17FC89431C3A4AC800429D2A /* CalendarViewFlowLayout.m */,
+				17FC89451C3A4EF900429D2A /* CalendarModel.h */,
+				17FC89461C3A4EFA00429D2A /* CalendarModel.m */,
+				17FC89481C3A4F7400429D2A /* EventModel.h */,
+				17FC89491C3A4F7400429D2A /* EventModel.m */,
+				17FC894B1C3A4F8F00429D2A /* CalendarHandle.h */,
+				17FC894C1C3A4F8F00429D2A /* CalendarHandle.m */,
 			);
 			path = 20151231;
 			sourceTree = "<group>";
@@ -159,10 +214,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FC89371C3A445D00429D2A /* Utils.m in Sources */,
+				17FC892C1C3A3D7D00429D2A /* CalendarCellView.m in Sources */,
+				17FC894A1C3A4F7400429D2A /* EventModel.m in Sources */,
+				17FC89501C3A5B8E00429D2A /* NSString+MyDate.m in Sources */,
+				17FC89411C3A455E00429D2A /* UIViewExt.m in Sources */,
 				1779DBA71C3530570094383A /* ViewController.m in Sources */,
+				17FC894D1C3A4F8F00429D2A /* CalendarHandle.m in Sources */,
+				17FC89441C3A4AC800429D2A /* CalendarViewFlowLayout.m in Sources */,
 				1779DBBB1C3532D00094383A /* CollectionCell.m in Sources */,
 				1779DBA41C3530570094383A /* AppDelegate.m in Sources */,
 				1779DBB81C3530AC0094383A /* CalendarView.m in Sources */,
+				17FC89331C3A444F00429D2A /* BaseViewController.m in Sources */,
+				17FC89471C3A4EFA00429D2A /* CalendarModel.m in Sources */,
 				1779DBA11C3530570094383A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +337,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = 20151231/PrefixHeader.pch;
 				INFOPLIST_FILE = 20151231/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.analysys.-0151231";
@@ -284,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = 20151231/PrefixHeader.pch;
 				INFOPLIST_FILE = 20151231/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.analysys.-0151231";
@@ -310,6 +376,7 @@
 				1779DBB51C3530580094383A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

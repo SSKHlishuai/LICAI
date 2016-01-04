@@ -10,4 +10,6 @@
 
 @interface CollectionCell : UICollectionViewCell
 
+-(void)setCellConfigWithDate:(NSInteger)dateCount withEvent:(NSArray*)showArrays;
+
 @end

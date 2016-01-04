@@ -6,9 +6,8 @@
 //  Copyright © 2015年 analysys. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
+#import "BaseViewController.h"
+@interface ViewController :BaseViewController
 
 
 @end
