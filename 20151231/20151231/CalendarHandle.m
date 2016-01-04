@@ -36,12 +36,6 @@
         NSLocale *locale = [[NSLocale alloc]initWithLocaleIdentifier:@"Chinese"];
         [calendar setLocale:locale];
         [calendar setFirstWeekday:0];
-//        NSLog(@"%ld",[self weekNumberInMonthForDate:[NSDate date]]);
-        int row = [self weekNumberInMonthForDate:[NSDate date]] - 1;
-
-        NSLog(@"row= %d, dayOfWeek=%d",[self numberOfWeeksInMonthContainingDate:[NSDate date]], [self dayOfWeekForDate:[NSDate date]]);
-
-        
     }
     return self;
 }

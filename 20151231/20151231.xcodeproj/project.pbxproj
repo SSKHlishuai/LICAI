@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		177835381C3A7FAC00C84E28 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177835371C3A7FAC00C84E28 /* CoreData.framework */; };
 		1779DBA11C3530570094383A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1779DBA01C3530570094383A /* main.m */; };
 		1779DBA41C3530570094383A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1779DBA31C3530570094383A /* AppDelegate.m */; };
 		1779DBA71C3530570094383A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1779DBA61C3530570094383A /* ViewController.m */; };
@@ -24,9 +25,11 @@
 		17FC894A1C3A4F7400429D2A /* EventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC89491C3A4F7400429D2A /* EventModel.m */; };
 		17FC894D1C3A4F8F00429D2A /* CalendarHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC894C1C3A4F8F00429D2A /* CalendarHandle.m */; };
 		17FC89501C3A5B8E00429D2A /* NSString+MyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FC894F1C3A5B8E00429D2A /* NSString+MyDate.m */; };
+		17FC89531C3A7A4E00429D2A /* LicaiAnalysis.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17FC89511C3A7A4E00429D2A /* LicaiAnalysis.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		177835371C3A7FAC00C84E28 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1779DB9C1C3530570094383A /* 20151231.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 20151231.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1779DBA01C3530570094383A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1779DBA21C3530570094383A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		17FC894C1C3A4F8F00429D2A /* CalendarHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHandle.m; sourceTree = "<group>"; };
 		17FC894E1C3A5B8E00429D2A /* NSString+MyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MyDate.h"; sourceTree = "<group>"; };
 		17FC894F1C3A5B8E00429D2A /* NSString+MyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MyDate.m"; sourceTree = "<group>"; };
+		17FC89521C3A7A4E00429D2A /* LicaiAnalysis.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LicaiAnalysis.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177835381C3A7FAC00C84E28 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +85,7 @@
 		1779DB931C3530570094383A = {
 			isa = PBXGroup;
 			children = (
+				177835371C3A7FAC00C84E28 /* CoreData.framework */,
 				1779DB9E1C3530570094383A /* 20151231 */,
 				1779DB9D1C3530570094383A /* Products */,
 			);
@@ -96,6 +102,7 @@
 		1779DB9E1C3530570094383A /* 20151231 */ = {
 			isa = PBXGroup;
 			children = (
+				17FC893E1C3A44B400429D2A /* PrefixHeader.pch */,
 				17FC89381C3A447300429D2A /* Defaultdefine.h */,
 				17FC89391C3A447300429D2A /* Imagedefine.h */,
 				17FC893A1C3A447300429D2A /* ModelDefine.h */,
@@ -119,7 +126,6 @@
 				1779DBBA1C3532D00094383A /* CollectionCell.m */,
 				17FC892A1C3A3D7D00429D2A /* CalendarCellView.h */,
 				17FC892B1C3A3D7D00429D2A /* CalendarCellView.m */,
-				17FC893E1C3A44B400429D2A /* PrefixHeader.pch */,
 				17FC893F1C3A455E00429D2A /* UIViewExt.h */,
 				17FC89401C3A455E00429D2A /* UIViewExt.m */,
 				17FC894E1C3A5B8E00429D2A /* NSString+MyDate.h */,
@@ -132,6 +138,7 @@
 				17FC89491C3A4F7400429D2A /* EventModel.m */,
 				17FC894B1C3A4F8F00429D2A /* CalendarHandle.h */,
 				17FC894C1C3A4F8F00429D2A /* CalendarHandle.m */,
+				17FC89511C3A7A4E00429D2A /* LicaiAnalysis.xcdatamodeld */,
 			);
 			path = 20151231;
 			sourceTree = "<group>";
@@ -220,6 +227,7 @@
 				17FC89501C3A5B8E00429D2A /* NSString+MyDate.m in Sources */,
 				17FC89411C3A455E00429D2A /* UIViewExt.m in Sources */,
 				1779DBA71C3530570094383A /* ViewController.m in Sources */,
+				17FC89531C3A7A4E00429D2A /* LicaiAnalysis.xcdatamodeld in Sources */,
 				17FC894D1C3A4F8F00429D2A /* CalendarHandle.m in Sources */,
 				17FC89441C3A4AC800429D2A /* CalendarViewFlowLayout.m in Sources */,
 				1779DBBB1C3532D00094383A /* CollectionCell.m in Sources */,
@@ -379,6 +387,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		17FC89511C3A7A4E00429D2A /* LicaiAnalysis.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				17FC89521C3A7A4E00429D2A /* LicaiAnalysis.xcdatamodel */,
+			);
+			currentVersion = 17FC89521C3A7A4E00429D2A /* LicaiAnalysis.xcdatamodel */;
+			path = LicaiAnalysis.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1779DB941C3530570094383A /* Project object */;
 }
