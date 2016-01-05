@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isLoading = NO;
-    self.view.backgroundColor = HexRGB(0xefefef);
+    self.view.backgroundColor = HexRGB(0xffffff);
     self.navigationController.navigationBar.hidden=YES;
     [self InitilizeNav];
 
