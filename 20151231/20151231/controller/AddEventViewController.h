@@ -7,6 +7,11 @@
 //
 
 #import "BaseViewController.h"
+typedef void(^reloadPrevious) (void);
+
 @interface AddEventViewController : BaseViewController
+
+@property (nonatomic, strong) reloadPrevious myBlock;
+@property (nonatomic, strong) NSDate *myDate;
 
 @end

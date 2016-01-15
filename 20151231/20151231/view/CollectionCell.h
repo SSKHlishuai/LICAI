@@ -22,6 +22,6 @@
 
 -(void)setCellConfigWithDate:(NSInteger)dateCount withEvent:(NSArray*)showArrays withItem:(NSInteger)item;
 
-
+-(void)setnull;
 
 @end

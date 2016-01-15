@@ -29,6 +29,8 @@
     ViewController *vc = [[ViewController alloc]init];
     UINavigationController *nac = [[UINavigationController alloc]initWithRootViewController:vc];
     self.window.rootViewController = nac;
+    NSLog(@"%@",NSHomeDirectory());
+    NSArray *ar = [CoreDataManager getAllEvent];
     // Override point for customization after application launch.
     return YES;
 }

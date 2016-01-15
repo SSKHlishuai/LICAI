@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>canyin</string>
+	<string>gouwu</string>
+	<string>jiaotong</string>
+	<string>lvxing</string>
+	<string>shejiao</string>
+	<string>shouru</string>
+	<string>shuimeidian</string>
+	<string>tongxun</string>
+	<string>wanggou</string>
+	<string>yiliao</string>
+	<string>zhuanzhang</string>
+	<string>zidingyi</string>
+	<string>tianjia</string>
+</array>
+</plist>

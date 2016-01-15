@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
     <entity name="PREvent" syncable="YES">
-        <attribute name="createTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="createday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createmonth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createyear" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modelId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="moneyCount" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PREvent" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="PREvent" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

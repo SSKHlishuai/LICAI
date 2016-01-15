@@ -44,11 +44,11 @@
     dateLabel.frame = CGRectMake(0, 0, self.frame.size.width-10, LabelHeight);
     dateLabel.textColor = HexRGB(0x777777);
     dateLabel.textAlignment = NSTextAlignmentRight;
-    dateLabel.font = [UIFont boldSystemFontOfSize:16.f];
+    dateLabel.font = [UIFont boldSystemFontOfSize:14.f];
     [self.contentView addSubview:dateLabel];
     maxShowCalendarViewCount = (NSInteger)((self.frame.size.height-LabelHeight)/(EventLabelHeight+1))+1;
     
-    calendarCellView  = [[CalendarCellView alloc]initWithFrame:FRAME(0, 0, self.frame.size.width, self.frame.size.height-LabelHeight)];
+    calendarCellView  = [[CalendarCellView alloc]initWithFrame:FRAME(0, dateLabel.bottom, self.frame.size.width, self.frame.size.height-LabelHeight)];
     [self.contentView addSubview:calendarCellView];
     self.backgroundColor = [UIColor clearColor];
     
@@ -59,14 +59,24 @@
 //    longPressGesture
     [self.contentView addGestureRecognizer:longPressGesture];
     
+    UIView *lineV = [UIView viewWithFrame:FRAME(0, 0, 1, self.height) withBackground:HexRGB(0xbfe0ef)];
+    [self.contentView addSubview:lineV];
+    UIView *lineH = [UIView viewWithFrame:FRAME(0, self.height-1, self.width, 1) withBackground:HexRGB(0xbfe0ef)];
+    [self.contentView addSubview:lineH];
+
+    
+    
 }
 
 -(void)cellLongPress:(UILongPressGestureRecognizer*)gesture
 {
+    if(currentLongClickCellItem==0)return;
+
+    NSLog(@"curr = %d",currentLongClickCellItem);
     if(gesture.state == UIGestureRecognizerStateBegan)
     {
         
-        
+
         UIWindow *window=[UIApplication sharedApplication].keyWindow;
         UIView *backgroundView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         backgroundView.backgroundColor=[UIColor clearColor];
@@ -94,10 +104,17 @@
     }
    
 }
+-(void)setnull
+{
+    currentLongClickCellItem=0;
+    dateLabel.text = @"";
+    [calendarCellView addEvent:nil];
 
+}
 -(void)setCellConfigWithDate:(NSInteger)dateCount withEvent:(NSArray*)showArrays withItem:(NSInteger)item
 {
-    currentLongClickCellItem = item;
+    
+    currentLongClickCellItem = dateCount;
     dateLabel.text = [NSString stringWithFormat:@"%02ld",dateCount];
     
     
@@ -114,6 +131,7 @@
     
     
 }
+
 
 -(void)awakeFromNib
 {

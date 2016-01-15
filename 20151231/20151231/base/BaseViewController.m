@@ -38,7 +38,7 @@
 -(void)InitilizeNav
 {
     self.headView = [[UIImageView alloc]initWithFrame:FRAME(0, 0, kScreenWidth, 64)];
-    _headView.backgroundColor = HexRGB(0x199cf8);
+    _headView.backgroundColor = IncomeColor;
     _headView.userInteractionEnabled = YES;
     [self.view addSubview:_headView];
     middleLabel = [[UILabel alloc]initWithFrame:FRAME(kScreenWidth/4, 20, kScreenWidth/2, 44)];

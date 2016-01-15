@@ -32,8 +32,8 @@
 #define BLACK_GROUND_IMAGE(name)[UIColor colorWithPatternImage:[UIImage imageNamed:name]]
 #define IMAGE_NAMED(name) [UIImage imageNamed:name]
 
-#define PayColor HexRGB(0xf97088)
-#define IncomeColor HexRGB(0x199cf8)
+#define PayColor HexRGB(0xff8598)
+#define IncomeColor HexRGB(0x13affd)
 //字体
 
 #define Label_font(fontSize) [UIFont systemFontOfSize:fontSize]

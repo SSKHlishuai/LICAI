@@ -35,15 +35,15 @@
         
         UIColor *_color;
         
-        if(model.eventType == PayType)
+        if([model.eventType integerValue] == PayType)
         {
-            _color = HexRGB(0xf97088);
+            _color = PayColor;
         }
         else
         {
-            _color =HexRGB(0x199cf8);
+            _color = IncomeColor;
         }
-        UILabel *label = [UILabel labelWithFrame:FRAME(0, 0+i*(EventLabelHeight+1), self.frame.size.width, EventLabelHeight) withTitle:[NSString stringWithFormat:@"%@%@",model.eventName,model.payCounts] withBackground:_color withtextColor:HexRGB(0xffffff) withFont:Label_font(12.f) withAlignment:NSTextAlignmentCenter];
+        UILabel *label = [UILabel labelWithFrame:FRAME(0, 0+i*(EventLabelHeight+1), self.frame.size.width, EventLabelHeight) withTitle:[NSString stringWithFormat:@"%@¥%@",model.eventName,model.payCounts] withBackground:_color withtextColor:HexRGB(0xffffff) withFont:SYSTEM_FONT(11.f) withAlignment:NSTextAlignmentCenter];
         [self addSubview:label];
 
     }

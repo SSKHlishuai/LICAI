@@ -16,5 +16,8 @@
 
 +(NSArray*)getAllEvent;
 
++(NSArray *)getOneDay:(NSDate*)date;
+
++(NSArray*)getEventfromonemonth:(NSString*)year withMonth:(NSString*)month;
 
 @end

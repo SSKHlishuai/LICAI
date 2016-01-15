@@ -8,10 +8,7 @@
 
 #import "CalendarView.h"
 #import "CollectionCell.h"
-
 #import "CalendarViewFlowLayout.h"
-
-#import "CalendarHandle.h"
 
 @interface CalendarView ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,CollectionCellDelegate>
 {
@@ -24,10 +21,6 @@
     UILabel     *balanceCountLabel;     //结余
     
 }
-
-
-
-
 @end
 
 @implementation CalendarView
@@ -44,19 +37,19 @@
 }
 
 
--(instancetype)initWithFrame:(CGRect)frame
+-(instancetype)initWithFrame:(CGRect)frame withPostx:(NSInteger)postX withDate:(NSDate*)myDate
 {
     self = [super initWithFrame:frame];
     if(self)
     {
-        [self InitilizeCollectionView];
+        [self InitilizeCollectionView:postX withDate:myDate];
     }
     
     return self;
 }
 
 
--(void)InitilizeCollectionView
+-(void)InitilizeCollectionView:(NSInteger)postX withDate:(NSDate*)myDate
 {
     /*
      初始化UICollectionView相关信息,
@@ -64,6 +57,7 @@
      minimumLineSpacing,minimumInteritemSpacing是处理科目框框之间的间距
      */
    
+    
     CalendarViewFlowLayout *flowLayout=[[CalendarViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
 
@@ -76,43 +70,68 @@
     myCollection.delegate=self;
     myCollection.dataSource =self;
     myCollection.bounces = YES;
-    
-//    myCollection.scrollEnabled = YES;
     [myCollection registerClass:[CollectionCell class] forCellWithReuseIdentifier:@"CollectionCell"];
     [self addSubview:myCollection];
     
-    currentSelectDate = [NSDate date];
-    firstDayPostx = [CalendarHandle getFirstPostWithDate:currentSelectDate];
+    currentSelectDate = myDate;
+    firstDayPostx = postX;
     NSString *str = @"";
     str = [str nowMonthDays:currentSelectDate];
     monthDayCounts = [str integerValue];
     
+    NSLog(@"firstDayPost = %ld,%@",firstDayPostx,currentSelectDate);
+
     [self InitilizeShowLabel];
     
     
 }
 
+-(void)reloadCurrentData
+{
+    [myCollection reloadData];
+}
+
+
+
+-(void)reloadCollectionData:(NSDate*)date withPost:(NSInteger)postX
+{
+    currentSelectDate = date;
+    firstDayPostx = postX;//[CalendarHandle getFirstPostWithDate:currentSelectDate];
+    NSLog(@"firstDayPost = %ld,%@",firstDayPostx,currentSelectDate);
+    NSString *str = @"";
+    str = [str nowMonthDays:currentSelectDate];
+    monthDayCounts = [str integerValue];
+    [myCollection reloadData];
+}
 -(void)InitilizeShowLabel
 {
-    UILabel *label1 = [UILabel labelWithFrame:FRAME(0, myCollection.bottom, kScreenWidth/3.f, 30) withTitle:@"收入" withBackground:HexRGB(0xffffff) withtextColor:IncomeColor withFont:SYSTEM_FONT(20.f) withAlignment:NSTextAlignmentCenter];
+    
+    UIImageView *image1 = [UIImageView imageviewWithFrame:FRAME(kScreenWidth/6.f-18, myCollection.bottom+10, 14, 14) withImage:IMAGE_NAMED(@"calendar_income")];
+    [self addSubview:image1];
+    
+    UILabel *label1 = [UILabel labelWithFrame:FRAME(kScreenWidth/6.f, myCollection.bottom+8, kScreenWidth/6.f, 20) withTitle:@"收入" withBackground:HexRGB(0xffffff) withtextColor:IncomeColor withFont:[UIFont boldSystemFontOfSize:12.f] withAlignment:NSTextAlignmentLeft];
     [self addSubview:label1];
     
     
-    UILabel *label2 = [UILabel labelWithFrame:FRAME(kScreenWidth/3, myCollection.bottom, kScreenWidth/3.f, 30) withTitle:@"支出" withBackground:HexRGB(0xffffff) withtextColor:PayColor withFont:SYSTEM_FONT(20.f) withAlignment:NSTextAlignmentCenter];
+    UIImageView *image2 = [UIImageView imageviewWithFrame:FRAME(kScreenWidth/6.f-18+kScreenWidth/3.f, myCollection.bottom+10, 14, 14) withImage:IMAGE_NAMED(@"calendar_pay")];
+    [self addSubview:image2];
+    UILabel *label2 = [UILabel labelWithFrame:FRAME(kScreenWidth/3+kScreenWidth/6.f, myCollection.bottom+8, kScreenWidth/6.f, 20) withTitle:@"支出" withBackground:HexRGB(0xffffff) withtextColor:PayColor withFont:[UIFont boldSystemFontOfSize:12.f] withAlignment:NSTextAlignmentLeft];
     [self addSubview:label2];
     
-    UILabel *label3 = [UILabel labelWithFrame:FRAME(kScreenWidth*2/3, myCollection.bottom, kScreenWidth/3.f, 30) withTitle:@"结余" withBackground:HexRGB(0xffffff) withtextColor:HexRGB(0x2fad9f) withFont:SYSTEM_FONT(20.f) withAlignment:NSTextAlignmentCenter];
+    UIImageView *image3 = [UIImageView imageviewWithFrame:FRAME(kScreenWidth/6.f-18+kScreenWidth*2/3.f, myCollection.bottom+10, 14, 14) withImage:IMAGE_NAMED(@"calendar_balance")];
+    [self addSubview:image3];
+    UILabel *label3 = [UILabel labelWithFrame:FRAME(kScreenWidth*2/3+kScreenWidth/6.f, myCollection.bottom+8, kScreenWidth/6.f, 20) withTitle:@"结余" withBackground:HexRGB(0xffffff) withtextColor:HexRGB(0x2fc1ae) withFont:[UIFont boldSystemFontOfSize:12.f] withAlignment:NSTextAlignmentLeft];
     [self addSubview:label3];
     
     
-    incomeCountLabel = [UILabel labelWithFrame:FRAME(0, label1.bottom, kScreenWidth/3.f, 30) withTitle:@"0.00" withBackground:HexRGB(0xffffff) withtextColor:IncomeColor withFont:SYSTEM_FONT(20.f) withAlignment:NSTextAlignmentCenter];
+    incomeCountLabel = [UILabel labelWithFrame:FRAME(0, label1.bottom, kScreenWidth/3.f, 30) withTitle:[OCUtils getOnemonthIncomeWithyear:[NSString year:currentSelectDate] withMonth:[NSString month:currentSelectDate]] withBackground:HexRGB(0xffffff) withtextColor:IncomeColor withFont:SYSTEM_FONT(16) withAlignment:NSTextAlignmentCenter];
     [self addSubview:incomeCountLabel];
     
-    payCountLabel =[UILabel labelWithFrame:FRAME(kScreenWidth/3, label2.bottom, kScreenWidth/3.f, 30) withTitle:@"0.00" withBackground:HexRGB(0xffffff) withtextColor:PayColor withFont:SYSTEM_FONT(20.f) withAlignment:NSTextAlignmentCenter];
+    payCountLabel =[UILabel labelWithFrame:FRAME(kScreenWidth/3, label2.bottom, kScreenWidth/3.f, 30) withTitle:[OCUtils getOnemonthPayWithyear:[NSString year:currentSelectDate] withMonth:[NSString month:currentSelectDate]] withBackground:HexRGB(0xffffff) withtextColor:PayColor withFont:SYSTEM_FONT(16) withAlignment:NSTextAlignmentCenter];
     
     [self addSubview:payCountLabel];
     
-    balanceCountLabel =[UILabel labelWithFrame:FRAME(kScreenWidth*2/3, label3.bottom, kScreenWidth/3.f, 30) withTitle:@"0.00" withBackground:HexRGB(0xffffff) withtextColor:HexRGB(0x2fad9f) withFont:SYSTEM_FONT(20.f) withAlignment:NSTextAlignmentCenter];
+    balanceCountLabel =[UILabel labelWithFrame:FRAME(kScreenWidth*2/3, label3.bottom, kScreenWidth/3.f, 30) withTitle:[OCUtils getOnemonthBalanceWithyear:[NSString year:currentSelectDate] withMonth:[NSString month:currentSelectDate]] withBackground:HexRGB(0xffffff) withtextColor:HexRGB(0x2fc1ae) withFont:SYSTEM_FONT(16) withAlignment:NSTextAlignmentCenter];
     [self addSubview:balanceCountLabel];
     
 }
@@ -154,41 +173,46 @@
     static NSString * CellIdentifier = @"CollectionCell";
     CollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.collectionCellDelegate=self;
-    cell.contentView.layer.borderWidth=0.5;
-    cell.contentView.layer.borderColor=  HexRGB(0xbfe4e1).CGColor;
-
-    if(indexPath.item>=35)
-    {
-        UIView *line = [UIView viewWithFrame:FRAME(0, cell.height-1, cell.width, 0.5) withBackground:HexRGB(0xbfe4e1)];
-        [cell.contentView addSubview:line];
-    }
     
     if(firstDayPostx<(indexPath.item+2)&&(indexPath.item+2-firstDayPostx)<= monthDayCounts)
     {
-        [cell setCellConfigWithDate:indexPath.item+2-firstDayPostx withEvent:nil withItem:indexPath.item];
+        [cell setCellConfigWithDate:indexPath.item+2-firstDayPostx withEvent:[CoreDataManager getOneDay:[OCUtils getAfterDate:currentSelectDate withCount:indexPath.item+1-firstDayPostx]] withItem:indexPath.item];
 
+//        NSLog(@"%d",indexPath.item+2-firstDayPostx)
     }
     else
     {
-        
+        [cell setnull];
     }
 
 
     return cell;
 }
+
+
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    if(firstDayPostx<(indexPath.item+2)&&(indexPath.item+2-firstDayPostx)<= monthDayCounts)
+    {
+        if([self.calendarViewDelegate respondsToSelector:@selector(tapEventView:)])
+        {
+            [self.calendarViewDelegate tapEventView:indexPath.item+2-firstDayPostx];
+        }
+    }
     
     
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    return CGSizeMake((self.frame.size.width)/7.f, (self.frame.size.height-70)/6.f);
+    NSInteger height =(self.frame.size.height-70)/6;
+    float f =(self.frame.size.width)/7.f;
+    
+    
+    return CGSizeMake(floorf(f * 100)/100.f, height);
 }
-
-
 
 -(void)longgestureEvent:(NSInteger)item withView:(UIView *)bgview
 {

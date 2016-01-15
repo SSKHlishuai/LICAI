@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 enum{
-    PayType = 0,
-    GetType
+    GetType = 0,
+    PayType
 };
 
 
@@ -19,5 +19,9 @@ enum{
 @property (nonatomic, copy) NSString *payCounts;
 @property (nonatomic, copy) NSString *eventName;
 @property (nonatomic, copy) NSString *eventType;
-@property (nonatomic, copy) NSDate *createTime;
+@property (nonatomic, copy) NSString *createTime;
+@property (nonatomic, copy) NSString *modelId;
+@property (nonatomic, copy) NSString *createyear;
+@property (nonatomic, copy) NSString *createmonth;
+@property (nonatomic, copy) NSString *createday;
 @end
